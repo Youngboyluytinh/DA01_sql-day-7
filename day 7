@@ -1,0 +1,10 @@
+ex 1
+select name from STUDENTS
+WHERE marks > 75
+ORDER BY RIGHT(name, 3), ID
+ex 2
+  select user_id,
+concat(upper(left(name, 1)), lower(right(name, length(name)-1))) as name
+from Users
+order by user_id
+ex 3
