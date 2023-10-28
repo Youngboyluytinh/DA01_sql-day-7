@@ -8,3 +8,41 @@ concat(upper(left(name, 1)), lower(right(name, length(name)-1))) as name
 from Users
 order by user_id
 ex 3
+SELECT manufacturer,
+'$' ||ROUND(SUM(total_sales)/1000000,0) || ' ' ||'million' as sale
+FROM pharmacy_sales
+GROUP BY manufacturer
+ORDER BY SUM(total_sales) DESC, manufacturer
+ex 4
+SELECT extract (month from submit_date) as mth, 
+product_id,
+round(avg(stars),2) as avg_stars
+from reviews
+group by mth,product_id
+order by mth,product_id
+ex5 
+SELECT sender_id,
+count (message_id) as message_count from messages
+where extract(month from sent_date)=8 
+and extract(year from sent_date)=2022 
+group by sender_id 
+order by message_count desc 
+limit 2
+ex 6
+select
+count (employee_id) as number_employee from employees
+where extract (month from joining _date) between 1 and 7
+abd extract ( year from joining_date)=2022
+ex8
+select
+count (employee_id) as number_employee from employees
+where extract (month from joining date) between 1 and 7
+abd extract ( year from joining _date)=2022
+ex9
+select
+position('a' in first _name) as position from worker
+where first_names = ‘Amitah’
+ex 10
+select
+position('a' in first _name) as position from worker
+where first_names = ‘Amitah’
